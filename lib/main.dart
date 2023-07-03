@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'global_style.dart';
+import 'screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           primaryColor: orangeDefault,
@@ -27,11 +29,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-      backgroundColor: const Color(0xFFA71125),
-      toolbarHeight: 20,
-      title: const Text("aahahfsdfsdsda"),
-    ));
+    return SplashScreen();
   }
 }
