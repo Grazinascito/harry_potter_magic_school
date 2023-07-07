@@ -2,6 +2,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:harry_potter_app/global_style.dart';
 import 'package:flutter/material.dart';
 
+import '../content_screen/content_screen.dart';
+
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 
@@ -61,13 +63,15 @@ class SplashScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 60,
                   child: ElevatedButton(
-                      onPressed: () => print("ok"),
+                      onPressed: () => {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ContentScreen()))
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                         backgroundColor: redDefault,
                         foregroundColor: whiteDefault,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4)),
+                        borderRadius: BorderRadius.circular(4)),
                       ),
                       child: const Text('Acessar conteúdo',
                           style: TextStyle(fontSize: 18))),
