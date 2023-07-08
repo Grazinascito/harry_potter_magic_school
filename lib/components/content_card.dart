@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../global_style.dart';
+import '../screens/spells_screen/spells_screen.dart';
+import '../screens/splash/splash_screen.dart';
 
 class ContentCard extends StatelessWidget {
   const ContentCard(
@@ -7,12 +9,22 @@ class ContentCard extends StatelessWidget {
       required this.titleCard,
       required this.subText,
       required this.icon,
-      required this.image});
+      required this.image,
+      required this.buttonRedirect});
 
   final String titleCard;
   final String subText;
   final String icon;
   final String image;
+  final String buttonRedirect;
+
+  Widget get showContentBasedOnClick {
+    if (buttonRedirect == "spells") {
+      return const SpellsScreen();
+    } else {
+      return SplashScreen();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +80,13 @@ class ContentCard extends StatelessWidget {
                         SizedBox(
                           height: 34,
                           child: ElevatedButton(
-                              onPressed: () => print("oiii"),
+                              onPressed: () => {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                showContentBasedOnClick))
+                                  },
                               style: ElevatedButton.styleFrom(
                                   fixedSize: const Size(220, 0),
                                   backgroundColor: redDefault,
