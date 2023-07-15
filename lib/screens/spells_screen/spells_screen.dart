@@ -18,12 +18,7 @@ class SpellsScreen extends StatelessWidget {
               headerSubtitle:
                   "Os feitiços que estão aqui serão aprendidos durante os sete anos em Hogwarts.",
             ),
-            const SpellsList(
-              title: "Avada Kedavra",
-              subtitle:
-                  "Also known as The Killing Curse, the most evil spell in the Wizarding World; one of three Unforgivable Curses; Harry Potter is the only known witch or wizard to survive it.",
-              isExpanded: false,
-            ),
+            const SpellsList(),
           ],
         ));
   }

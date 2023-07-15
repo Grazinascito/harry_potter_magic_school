@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter_app/screens/hogwarts_screen/hogwarts_screen.dart';
 import '../../global_style.dart';
 import '../screens/spells_screen/spells_screen.dart';
-import '../screens/splash/splash_screen.dart';
 
 class ContentCard extends StatelessWidget {
   const ContentCard(
@@ -22,7 +22,7 @@ class ContentCard extends StatelessWidget {
     if (buttonRedirect == "spells") {
       return const SpellsScreen();
     } else {
-      return SplashScreen();
+      return const HogwartsScreen();
     }
   }
 
