@@ -13,19 +13,26 @@ class _HogwartsScreenState extends State<HogwartsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: whiteDefault,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ContentHeader(
-              headerTitle: "Alunos e professores",
-              headerSubtitle:
-                  "Esses são os alunos, professores e criaturas que você irá encontrar estudando aqui em Hogwarts.",
-            ),
-            const CharacterContainer(house: 'gryffindor'),
-            const CharacterContainer(house: 'hufflepuff'),
-          ],
-        ),
+      backgroundColor: const Color(0xFFfef9f0),
+      body: Column(
+        children: [
+          ContentHeader(
+            headerTitle: "Alunos e professores",
+            headerSubtitle:
+                "Esses são os alunos, professores e criaturas que você irá encontrar estudando aqui em Hogwarts.",
+          ),
+          const Expanded(
+            child: SingleChildScrollView(
+                child: Column(
+              children: [
+                CharacterContainer(house: 'gryffindor'),
+                CharacterContainer(house: 'hufflepuff'),
+                CharacterContainer(house: 'ravenclaw'),
+                CharacterContainer(house: 'slytherin'),
+              ],
+            )),
+          )
+        ],
       ),
     );
   }
