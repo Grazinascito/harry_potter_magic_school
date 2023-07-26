@@ -23,7 +23,7 @@ class _CharacterContainerState extends State<CharacterContainer> {
     _future = getHouses();
   }
 
-  final List characterInfo = ['Gryffindor'];
+  final List characterInfo = [{}];
 
   Future<void> getHouses() async {
     var url = Uri.https(
@@ -33,15 +33,15 @@ class _CharacterContainerState extends State<CharacterContainer> {
     var jsonResponse = convert.jsonDecode(response.body);
 
     for (var eachCharacter in jsonResponse) {
-      final characterHourse = CharacterHouse(
+      final characterHouse = CharacterHouse(
           id: eachCharacter['id'],
           house: eachCharacter['house'],
           name: eachCharacter['name'],
           image: eachCharacter['image']);
 
-      if (characterInfo.length < 6) {
-        print(characterHourse.house);
-        characterInfo.add(characterHourse);
+      if (characterInfo.length <= 6) {
+        print(characterHouse.house);
+        characterInfo.add(characterHouse);
       }
     }
   }
@@ -61,12 +61,12 @@ class _CharacterContainerState extends State<CharacterContainer> {
                 style: titleTextStyle,
                 textAlign: TextAlign.left,
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
-                height: 300,
-                color: greenDefault,
+                height: 380,
                 child: GridView.count(
                   physics: const NeverScrollableScrollPhysics(),
+                  childAspectRatio: 0.80,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 20,
                   crossAxisCount: 3,
@@ -88,21 +88,21 @@ class CharacterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: whiteDefault,
-      child: Padding(
-        padding: const EdgeInsets.all(9),
-        child: SizedBox(
-          height: 500,
+    return SizedBox(
+      child: Card(
+        color: whiteDefault,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(children: [
             ClipOval(
                 child: SizedBox.fromSize(
                     size: const Size.fromRadius(25),
                     child: Image.asset('assets/images/spells.png',
                         fit: BoxFit.cover))),
+            const SizedBox(height: 10),
             const Text(
               'Harry Potter',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
               softWrap: true,
               maxLines: 2,
