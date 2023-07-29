@@ -39,8 +39,6 @@ class _SpellsListState extends State<SpellsList> {
         return print("ok");
       }
     }
-
-    print(spells.length);
   }
 
   @override

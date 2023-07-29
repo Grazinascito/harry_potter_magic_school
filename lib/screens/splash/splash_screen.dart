@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
             child: Column(
               children: [
                 DefaultTextStyle(
@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 28,
+                  height: 20,
                 ),
                 DefaultTextStyle(
                   style: screenTextStyle,
@@ -57,21 +57,24 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 70,
+                  height: 50,
                 ),
                 SizedBox(
                   width: double.infinity,
-                  height: 60,
+                  height: 50,
                   child: ElevatedButton(
                       onPressed: () => {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ContentScreen()))
-                      },
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ContentScreen()))
+                          },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                         backgroundColor: redDefault,
                         foregroundColor: whiteDefault,
                         shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4)),
+                            borderRadius: BorderRadius.circular(4)),
                       ),
                       child: const Text('Acessar conteúdo',
                           style: TextStyle(fontSize: 18))),

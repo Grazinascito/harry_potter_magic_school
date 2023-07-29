@@ -5,6 +5,8 @@ import 'package:harry_potter_app/model/character_house.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import 'character_card.dart';
+
 final titleTextStyle = GoogleFonts.jollyLodger(
     fontSize: 28, color: blackDefault, fontWeight: FontWeight.w500);
 
@@ -23,7 +25,7 @@ class _CharacterContainerState extends State<CharacterContainer> {
     _future = getHouses();
   }
 
-  final List characterInfo = [{}];
+  final List characterInfos = [];
 
   Future<void> getHouses() async {
     var url = Uri.https(
@@ -39,9 +41,8 @@ class _CharacterContainerState extends State<CharacterContainer> {
           name: eachCharacter['name'],
           image: eachCharacter['image']);
 
-      if (characterInfo.length <= 6) {
-        print(characterHouse.house);
-        characterInfo.add(characterHouse);
+      if (characterInfos.length <= 6) {
+        characterInfos.add(characterHouse);
       }
     }
   }
@@ -51,6 +52,10 @@ class _CharacterContainerState extends State<CharacterContainer> {
     return FutureBuilder(
       future: _future,
       builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator(
+              backgroundColor: Colors.amber, color: Colors.amberAccent);
+        }
         return Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Column(
@@ -63,53 +68,23 @@ class _CharacterContainerState extends State<CharacterContainer> {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 380,
-                child: GridView.count(
+                height: 400,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 8.0,
+                      crossAxisSpacing: 0),
                   physics: const NeverScrollableScrollPhysics(),
-                  childAspectRatio: 0.80,
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 20,
-                  crossAxisCount: 3,
-                  children: List.generate(6, (index) => const CharacterCard()),
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return CharacterCard(data: characterInfos, index: index);
+                  },
                 ),
               ),
             ],
           ),
         );
       },
-    );
-  }
-}
-
-class CharacterCard extends StatelessWidget {
-  const CharacterCard({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: Card(
-        color: whiteDefault,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            ClipOval(
-                child: SizedBox.fromSize(
-                    size: const Size.fromRadius(25),
-                    child: Image.asset('assets/images/spells.png',
-                        fit: BoxFit.cover))),
-            const SizedBox(height: 10),
-            const Text(
-              'Harry Potter',
-              style: TextStyle(fontSize: 18),
-              textAlign: TextAlign.center,
-              softWrap: true,
-              maxLines: 2,
-            )
-          ]),
-        ),
-      ),
     );
   }
 }
