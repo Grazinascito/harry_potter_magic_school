@@ -68,12 +68,13 @@ class _CharacterContainerState extends State<CharacterContainer> {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 400,
+                height: 350,
                 child: GridView.builder(
+                  padding: EdgeInsets.zero,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      mainAxisSpacing: 8.0,
-                      crossAxisSpacing: 0),
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 20),
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: 6,
                   itemBuilder: (context, index) {
