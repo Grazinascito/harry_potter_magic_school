@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter_app/model/spells.dart';
+import 'package:harry_potter_app/models/spells.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 

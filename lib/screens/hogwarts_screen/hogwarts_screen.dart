@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../components/character_container.dart';
-import '../../components/content_header.dart';
+import '../../components/organism/character_container.dart';
+import '../../components/molecules/content_header.dart';
 
 class HogwartsScreen extends StatefulWidget {
   const HogwartsScreen({super.key});
@@ -23,7 +23,7 @@ class _HogwartsScreenState extends State<HogwartsScreen> {
           ),
           const Expanded(
             child: SingleChildScrollView(
-                child: Column(
+              child: Column(
               children: [
                 CharacterContainer(house: 'gryffindor'),
                 CharacterContainer(house: 'hufflepuff'),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../components/content_card.dart';
-import '../../components/content_header.dart';
+import '../../components/molecules/access_card.dart';
+import '../../components/molecules/content_header.dart';
 import '../../global_style.dart';
 
 class ContentScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class ContentScreen extends StatelessWidget {
           headerSubtitle:
               "Você pode conhecer seus colegas e também conhecer previamente alguns feitiços.",
         ),
-        const ContentCard(
+        const AccessCard(
             titleCard: "Alunos e professores",
             subText:
                 "Aqui estão todos os alunos,  professores e criaturas que você encontrará na escola.",
@@ -30,7 +30,7 @@ class ContentScreen extends StatelessWidget {
             icon: "assets/images/pointed_hat.png",
             buttonRedirect: "content"
             ),
-        const ContentCard(
+        const AccessCard(
             titleCard: "Feitiços",
             subText:
                 "Aqui estão os principais feitiços que serão aprendidos na escola.",

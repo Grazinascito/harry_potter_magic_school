@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../global_style.dart';
+import '../../../global_style.dart';
 
 class ContentHeader extends StatelessWidget {
   ContentHeader(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter_app/global_style.dart';
 
-import '../../components/content_header.dart';
-import '../../components/spells_list.dart';
+import '../../components/molecules/content_header.dart';
+import '../../components/organism/spells_list.dart';
 
 class SpellsScreen extends StatelessWidget {
   const SpellsScreen({super.key});

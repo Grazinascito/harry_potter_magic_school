@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:harry_potter_app/global_style.dart';
-import 'package:harry_potter_app/model/character_house.dart';
+import 'package:harry_potter_app/models/character_house.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
-import 'character_card.dart';
+import '../molecules/character_card.dart';
 
 final titleTextStyle = GoogleFonts.jollyLodger(
     fontSize: 28, color: blackDefault, fontWeight: FontWeight.w500);
@@ -73,7 +73,7 @@ class _CharacterContainerState extends State<CharacterContainer> {
                   padding: EdgeInsets.zero,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      mainAxisSpacing: 12,
+                      mainAxisSpacing: 60,
                       crossAxisSpacing: 20),
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: 6,

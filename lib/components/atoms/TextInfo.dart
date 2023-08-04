@@ -9,16 +9,17 @@ class TextInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topLeft,
-      child: RichText(
-          text: TextSpan(
-              style: DefaultTextStyle.of(context).style,
-              children: <TextSpan>[
-            TextSpan(
-                text: '$title: ',
-                style: const TextStyle(fontWeight: FontWeight.bold)),
-            TextSpan(text: subtitle)
-          ])),
-    );
+        alignment: Alignment.topLeft,
+        child: RichText(
+            text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: <TextSpan>[
+              TextSpan(
+                  text: '$title: ',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18)),
+              TextSpan(text: subtitle)
+            ])),
+        );
   }
 }

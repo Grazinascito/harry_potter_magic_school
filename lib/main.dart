@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'global_style.dart';
 import 'screens/splash/splash_screen.dart';
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: List.empty());
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
