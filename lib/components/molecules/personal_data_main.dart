@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../atoms/TextInfo.dart';
 
 class PersonalDataMain extends StatelessWidget {
-  PersonalDataMain({super.key});
+  PersonalDataMain({super.key, required this.data});
+  final data;
   final title = [
     'Nome',
     'Espécie',
@@ -31,27 +32,24 @@ class PersonalDataMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mockDataModified = mockData[0].values.toList();
-
+    final mockDataModified = data[0].values.toList();
+    print(data);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       ListTile(
+        contentPadding: EdgeInsets.zero,
         minLeadingWidth: 10,
         title: const Text("Dados pessoais: ",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         leading: Image.asset('./assets/images/personal_data_icon.png'),
       ),
-      const Divider(),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(18, 0, 0, 0),
-        child: Column(
-            children: title.map((t) {
-          var index = title.indexOf(t);
-          return TextInfo(
-            title: t,
-            subtitle: '${mockDataModified[index]}',
-          );
-        }).toList()),
-      )
+      Column(
+          children: title.map((t) {
+        var index = title.indexOf(t);
+        return TextInfo(
+          title: t,
+          subtitle: '${mockDataModified[index]}',
+        );
+      }).toList())
     ]);
   }
 }

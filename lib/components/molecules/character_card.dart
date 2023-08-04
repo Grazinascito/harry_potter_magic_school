@@ -9,8 +9,10 @@ class CharacterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const CharacterInfo()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => CharacterInfo(id: '${data[index].id}')));
       },
       child: Container(
         padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
