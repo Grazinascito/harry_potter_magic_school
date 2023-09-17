@@ -1,5 +1,4 @@
 class Info {
-  final String id;
   final String name;
   final String species;
   final String gender;
@@ -11,8 +10,7 @@ class Info {
   final String hairColour;
 
   Info(
-      {required this.id,
-      required this.name,
+      {required this.name,
       required this.species,
       required this.gender,
       required this.house,

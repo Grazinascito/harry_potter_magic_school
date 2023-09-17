@@ -4,7 +4,6 @@ import '../../components/molecules/personal_data_header.dart';
 import '../../components/molecules/personal_data_main.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
 import '../../models/character_info.dart';
 
 const gradientHeader = LinearGradient(
@@ -30,7 +29,7 @@ class _CharacterInfoState extends State<CharacterInfo> {
     _info = getCharacterInfo();
   }
 
-  final List info = [];
+  final info = [];
 
   getCharacterInfo() async {
     var url = Uri.https('hp-api.onrender.com', '/api/character/${widget.id}');
@@ -39,17 +38,23 @@ class _CharacterInfoState extends State<CharacterInfo> {
     var jsonResponse = convert.jsonDecode(response.body);
 
     for (var eachInfo in jsonResponse) {
-      final personalInfo = Info(
-        id: eachInfo['id'],
-        name: eachInfo['name'],
-      );
+      final  personalInfo = Info(
+          name: eachInfo['name'],
+          species: eachInfo['species'],
+          gender: eachInfo['gender'],
+          house: eachInfo['house'],
+          yearOfBirth: eachInfo['yearOfBirth'].toString(),
+          wizard: eachInfo['ancestry'],
+          ancestry: eachInfo['ancestry'],
+          eyeColour: eachInfo['eyeColour'],
+          hairColour: eachInfo['hairColour']);
+      info.add(personalInfo);
     }
-
-    info.add(jsonResponse);
   }
 
   @override
   Widget build(BuildContext context) {
+    print(_info);
     return Scaffold(
       backgroundColor: const Color(0xFFfef9f0),
       body: Column(children: [

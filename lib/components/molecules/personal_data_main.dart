@@ -23,7 +23,7 @@ class PersonalDataMain extends StatelessWidget {
       "gender": "male",
       "house": "Gryffindor",
       "yearOfBirth": 1980,
-      "wizard": true,
+      "wizard": (true).toString(),
       "ancestry": "half-blood",
       "eyeColour": "green",
       "hairColour": "black",
@@ -32,8 +32,12 @@ class PersonalDataMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mockDataModified = data[0].values.toList();
-    print(data);
+    var mockDataModified = data[0];
+
+    for (var ele in mockDataModified) {
+      print(ele);
+    }
+
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       ListTile(
         contentPadding: EdgeInsets.zero,
@@ -47,7 +51,7 @@ class PersonalDataMain extends StatelessWidget {
         var index = title.indexOf(t);
         return TextInfo(
           title: t,
-          subtitle: '${mockDataModified[index]}',
+          subtitle: '',
         );
       }).toList())
     ]);
